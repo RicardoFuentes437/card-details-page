@@ -1,0 +1,114 @@
+@use '../variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+#form-section{
+    display: flex;
+
+    .form{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        position: relative;
+        top: 25%;
+        gap: 20px;
+        
+        label{
+            align-self: flex-start;
+        }
+
+        input{
+            height: 30px;
+            font-family: 'Space Grotesk';
+            outline: none;
+
+            &::placeholder{
+                color: v.$Dark-grayish-violet;
+                padding-left: 5px;
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            &:focus{
+                border: double 1px transparent;
+                border-radius: 5px;
+                background-image: linear-gradient(white, white), 
+                                v.$Linear-gradient;
+                background-origin: border-box;
+                background-clip: content-box, border-box;
+            }
+        }
+
+        #cardholder-name-section{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #card-number-section{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bottom-form{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            .exp-date{
+                display: flex;
+                flex-direction: column;
+
+                #exp-fields{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+
+                    .exp-field-section{
+                        display: flex;
+                        flex-direction: column;
+
+                        .exp-field{
+                            width: 65px;
+                        }
+                    }
+                }
+            }
+
+            #cvc-section{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+
+        .error-message{
+            font-size: 12px;
+            color: v.$Red;
+            padding: 0;
+            margin: 0;
+            align-self: flex-start;
+        }
+
+        #submit-button{
+            background-color: v.$Very-dark-violet;
+            color: v.$Light-grayish-violet;
+            font-family: 'Space Grotesk';
+            border: none;
+            height: 40px;
+            border-radius: 5px;
+        }
+    }
+
+    @media (max-width: 920px) {
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 450px) {
+        .form{
+            width: 350px;
+        }
+    }
+
+}

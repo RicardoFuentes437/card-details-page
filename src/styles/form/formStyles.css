@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+#form-section {
+  display: flex;
+}
+#form-section .form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  position: relative;
+  top: 25%;
+  gap: 20px;
+}
+#form-section .form label {
+  align-self: flex-start;
+}
+#form-section .form input {
+  height: 30px;
+  font-family: "Space Grotesk";
+  outline: none;
+}
+#form-section .form input::-moz-placeholder {
+  color: hsl(279, 6%, 55%);
+  padding-left: 5px;
+}
+#form-section .form input::placeholder {
+  color: hsl(279, 6%, 55%);
+  padding-left: 5px;
+}
+#form-section .form input:hover {
+  cursor: pointer;
+}
+#form-section .form input:focus {
+  border: double 1px transparent;
+  border-radius: 5px;
+  background-image: linear-gradient(white, white), linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+#form-section .form #cardholder-name-section {
+  display: flex;
+  flex-direction: column;
+}
+#form-section .form #card-number-section {
+  display: flex;
+  flex-direction: column;
+}
+#form-section .form .bottom-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+#form-section .form .bottom-form .exp-date {
+  display: flex;
+  flex-direction: column;
+}
+#form-section .form .bottom-form .exp-date #exp-fields {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+#form-section .form .bottom-form .exp-date #exp-fields .exp-field-section {
+  display: flex;
+  flex-direction: column;
+}
+#form-section .form .bottom-form .exp-date #exp-fields .exp-field-section .exp-field {
+  width: 65px;
+}
+#form-section .form .bottom-form #cvc-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#form-section .form .error-message {
+  font-size: 12px;
+  color: hsl(0, 100%, 66%);
+  padding: 0;
+  margin: 0;
+  align-self: flex-start;
+}
+#form-section .form #submit-button {
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(270, 3%, 87%);
+  font-family: "Space Grotesk";
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+}
+@media (max-width: 920px) {
+  #form-section {
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 450px) {
+  #form-section .form {
+    width: 350px;
+  }
+}/*# sourceMappingURL=formStyles.css.map */
