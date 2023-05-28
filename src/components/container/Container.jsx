@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { createRef, useState } from 'react';
 import Card from '../pure/Card';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import '../../styles/form/formStyles.css';
+import CompleteState from '../pure/CompleteState';
 
 const CardSchema = Yup.object().shape({
     name: Yup.string()
@@ -38,6 +39,9 @@ const Container = () => {
     const [expYear, setExpYear] = useState("");
     const [cardCvc, setCvc] = useState("");
 
+    const formRef = createRef();
+    const completeRef = createRef();
+
     const initialValues = {
         name: '',
         cardNumber: '',
@@ -61,6 +65,25 @@ const Container = () => {
         return number.replace(/\s/g, "").replace(/(\d{4})/g, "$1 ").trim();
     }
 
+    const resetForm = () => {
+        setCardNumber("");
+        setName("");
+        setCvc("");
+        setExpMonth("");
+        setExpYear("");
+    }
+
+    const submitDetails = () => {
+        formRef.current.style.display = 'none';
+        completeRef.current.style.display = 'flex';
+    }
+
+    const cont = () => {
+        formRef.current.style.display = 'flex';
+        completeRef.current.style.display = 'none';
+        resetForm();
+    }
+
     return (
         <div className='main-app'>
             <div id="cards-section">
@@ -75,13 +98,14 @@ const Container = () => {
             </div>
             <div id="form-section">
             <Formik
-        initialValues={initialValues}
-        validationSchema={CardSchema}
-        onSubmit={async (values) => {
-        }}
-        >
+            initialValues={initialValues}
+            validationSchema={CardSchema}
+            onSubmit={async (values) => {
+                submitDetails();
+            }}
+            >
             {({ values, errors, touched, setFieldValue }) => (
-                <Form className='form'>
+                <Form className='form' ref={formRef}>
                     <div id="cardholder-name-section">
                         <label htmlFor="name">CARDHOLDER NAME</label>
                         <Field type="text" name="name" placeholder="e.g. Jane Appleseed" value={nameClient} 
@@ -108,7 +132,7 @@ const Container = () => {
                     </div>
                     <div className='bottom-form'>
                         <div className='exp-date'>
-                            <label for={expMonth}>EXP. DATE (MM/YY)</label>
+                            <label htmlFor={expMonth}>EXP. DATE (MM/YY)</label>
                             <div id="exp-fields">
                                 <div className="exp-field-section">
                                     <Field type="text" className="exp-field" name="expMonth" placeholder="MM" value={expMonth} 
@@ -149,8 +173,9 @@ const Container = () => {
                     </div>
                     <button type="submit" id="submit-button">Confirm</button>
                 </Form>
-            )}
-        </Formik>
+                )}
+            </Formik>
+            <CompleteState innerRef={completeRef} cont={cont}></CompleteState>
             </div>
         </div>
     );

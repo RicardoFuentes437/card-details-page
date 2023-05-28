@@ -14,13 +14,41 @@ html .main-app, body .main-app, #root .main-app {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 html .main-app #cards-section, body .main-app #cards-section, #root .main-app #cards-section {
   width: 55%;
 }
 html .main-app #form-section, body .main-app #form-section, #root .main-app #form-section {
   width: 45%;
+}
+html .main-app #complete-state, body .main-app #complete-state, #root .main-app #complete-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+html .main-app #complete-state #complete-state-img, body .main-app #complete-state #complete-state-img, #root .main-app #complete-state #complete-state-img {
+  width: 70px;
+}
+html .main-app #complete-state #complete-state-title, body .main-app #complete-state #complete-state-title, #root .main-app #complete-state #complete-state-title {
+  letter-spacing: 2px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+html .main-app #complete-state #complete-state-p, body .main-app #complete-state #complete-state-p, #root .main-app #complete-state #complete-state-p {
+  color: hsl(279, 6%, 55%);
+}
+html .main-app #complete-state #complete-state-button, body .main-app #complete-state #complete-state-button, #root .main-app #complete-state #complete-state-button {
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(270, 3%, 87%);
+  font-family: "Space Grotesk";
+  border: none;
+  height: 40px;
+  width: 350px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 @media (max-width: 920px) {
   html, body, #root {
@@ -38,5 +66,9 @@ html .main-app #form-section, body .main-app #form-section, #root .main-app #for
   }
   html .main-app #form-section, body .main-app #form-section, #root .main-app #form-section {
     width: 100%;
+  }
+  html .main-app #complete-state, body .main-app #complete-state, #root .main-app #complete-state {
+    padding-top: 70px;
+    padding-bottom: 40px;
   }
 }/*# sourceMappingURL=pageStyles.css.map */

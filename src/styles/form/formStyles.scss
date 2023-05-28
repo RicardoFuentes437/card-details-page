@@ -97,12 +97,16 @@
             border: none;
             height: 40px;
             border-radius: 5px;
+            cursor: pointer;
         }
     }
 
     @media (max-width: 920px) {
         align-items: center;
         justify-content: center;
+        .form{
+            padding-bottom: 40px;
+        }
     }
 
     @media (max-width: 450px) {
